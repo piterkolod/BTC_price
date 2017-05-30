@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>BTC</title>
+
+    </head>
+<body>
+<div class="div1">
+    <p>Current time: {{ time }}</p>
+    <p>Current BTC price: ${{ price|floatformat:2 }} </p>
+    <p>Average BTC price in last 10 minutes: ${{ avg }}</p>
+</div>
+<div clas="div2">
+    <table border="solid">
+        <tr>
+            <td>Time</td>
+            <td>Lowest price</td>
+            <td>Highest price</td>
+        </tr>
+        {% for i in history %}
+        <tr>
+            <td>{{ forloop.counter }} min ago</td>
+            <td>{{ i.1|floatformat:2 }}</td>
+            <td>{{ i.2|floatformat:2 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>
